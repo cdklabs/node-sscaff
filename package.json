@@ -3,8 +3,11 @@
   "version": "1.1.1",
   "description": "Stupid scaffoling: create a copy of a directory with variable substitution",
   "main": "index.js",
-  "repository": "https://github.com/awslabs/cdk8s",
-  "author": "Amazon",
+  "repository": "https://github.com/eladb/node-sscaff",
+  "author": {
+    "email": "elad.benisrael@gmail.com",
+    "name": "Elad Ben-Israel"
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^25.1.3",
