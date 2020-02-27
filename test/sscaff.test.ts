@@ -1,6 +1,11 @@
-import { scaff } from '..';
+import { sscaff } from '..';
 import { promises as fs } from 'fs';
 import * as path from 'path';
+
+testWithFixture('fixture1', {
+  sscaff: 'here',
+  here: 'sscaff'
+});
 
 testWithFixture('fixture2', {
   boom: '_boom_'
@@ -17,12 +22,12 @@ async function testWithFixture(fixture: string, variables?: { [key: string]: str
     const input = path.join(__dirname, fixture);
     const expected = path.join(__dirname, `${fixture}.expected`);
   
-    const actual = await fs.mkdtemp('/tmp/scaff-test');
+    const actual = await fs.mkdtemp('/tmp/sscaff-test');
     const outdir = path.join(actual, 'myproject');
-    await scaff(input, outdir, variables);
+    await sscaff(input, outdir, variables);
 
     try {
-      await expectDirsEqual(actual, expected, [ '.hooks.scaff.js' ]);
+      await expectDirsEqual(actual, expected, [ '.hooks.sscaff.js' ]);
     } catch (e) {
       console.log(`\nto update:\n  rsync --delete -av ${actual}/ ${expected}/`);
       throw e;

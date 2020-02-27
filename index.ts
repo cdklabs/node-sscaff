@@ -1,1 +1,1 @@
-export * from './lib/scaff';
+export * from './lib/sscaff';

@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { substitute } from './substitute';
 
-const hooksFile = `.hooks.scaff.js`;
+const hooksFile = `.hooks.sscaff.js`;
 
 /**
  * Copy all files from `templateDir` to `targetDir` and substitute all variables
@@ -12,7 +12,7 @@ const hooksFile = `.hooks.scaff.js`;
  * @param targetDir 
  * @param variables 
  */
-export async function scaff(sourceDir: string, targetDir: string, variables: { [key: string]: string } = { }) {
+export async function sscaff(sourceDir: string, targetDir: string, variables: { [key: string]: string } = { }) {
   sourceDir = path.resolve(sourceDir);
   targetDir = path.resolve(targetDir);
 

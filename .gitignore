@@ -1,6 +1,6 @@
 *.js
 *.d.ts
-!.hooks.scaff.js
+!.hooks.sscaff.js
 
 
 # Logs

@@ -6,13 +6,13 @@ pre/post node.js hooks.
 ## Installation
 
 ```shell
-yarn add scaff
+yarn add sscaff
 ```
 
 or:
 
 ```shell
-npm install scaff
+npm install sscaff
 ```
 
 ## Usage
@@ -25,12 +25,12 @@ my-first-template
     Hello, my name is {{name}}!
 ```
 
-Now, use `scaff` to create a copy and substitute:
+Now, use `sscaff` to create a copy and substitute:
 
 ```ts
-import { scaff } from 'scaff';
+import { sscaff } from 'sscaff';
 
-await scaff('my-first-template', 'outdir', {
+await sscaff('my-first-template', 'outdir', {
   name: 'oliver'
 });
 ```
@@ -47,7 +47,7 @@ The `$base` variable will include the base name of the output directory (e.g. `o
 
 ## Hooks
 
-If the template directory has a file named `.hooks.scaff.js`, and exports `pre`
+If the template directory has a file named `.hooks.sscaff.js`, and exports `pre`
 and/or `post` functions, those will be called before and after the creation of
 the output, respectively.
 
@@ -58,7 +58,7 @@ synchronous or asynchronous.
 The `pre` function may also modify the `variables` dictionary (i.e. add
 variables, modify them, etc).
 
-For example, let's add the following `.hooks.scaff.js` file to
+For example, let's add the following `.hooks.sscaff.js` file to
 `my-first-template` above.
 
 ```js
