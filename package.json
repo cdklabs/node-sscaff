@@ -1,0 +1,26 @@
+{
+  "name": "sscaff",
+  "version": "1.0.0",
+  "description": "Stupid scaffoling: create a copy of a directory with variable substitution",
+  "main": "index.js",
+  "repository": "https://github.com/awslabs/cdk8s",
+  "author": "Amazon",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/jest": "^25.1.3",
+    "@types/node": "^13.7.6",
+    "jest": "^25.1.0",
+    "typescript": "^3.8.2"
+  },
+  "jest": {
+    "coverageDirectory": "coverage",
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest"
+  }
+}
