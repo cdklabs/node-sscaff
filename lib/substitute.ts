@@ -1,5 +1,6 @@
 export function substitute(s: string, variables: { [key: string]: string } = { }) {
-  for (const [ key, value ] of Object.entries(variables)) {
+  // '': '' is an empty substitution
+  for (const [ key, value ] of Object.entries({ ...variables, '': '' })) {
     s = s.replace(new RegExp(`{{ *${escapeRegExp(key)} *}}`, 'g'), value);
   }
   return s;

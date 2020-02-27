@@ -43,7 +43,15 @@ outdir
     Hello, my name is oliver!
 ```
 
-The `$base` variable will include the base name of the output directory (e.g. `outdir` in the example above).
+## Built-in Substitutions
+
+* `{{ $base }}` will be substituted by the base name of the output directory
+  (e.g. `outdir` in the example above).
+* `{{ }}` will be substituted by the empty string. You can use this substitution
+  to "salt" a file name so it won't be recognized by the parent project. For
+  example, if you want your template to include a gitignore file, you should
+  call it `{{}}.gitignore` so it won't be recognized as a "real" gitignore in
+  the parent project.
 
 ## Hooks
 
