@@ -1,4 +1,4 @@
-# node-sscaff
+# sscaff
 
 Stupid scaffolding: copies an entire directory with variable substitution and
 pre/post node.js hooks.

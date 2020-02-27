@@ -24,8 +24,6 @@
     "build": "tsc",
     "watch": "tsc -w",
     "bump": "standard-version",
-    "package": "npm pack",
-    "release": "jsii-release-npm .",
     "test": "jest"
   }
 }
