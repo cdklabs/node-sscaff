@@ -1,6 +1,6 @@
 {
   "name": "sscaff",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Stupid scaffoling: create a copy of a directory with variable substitution",
   "main": "index.js",
   "repository": "https://github.com/eladb/node-sscaff",
