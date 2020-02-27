@@ -2,10 +2,6 @@ import { scaff } from '..';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 
-testWithFixture('fixture1', {
-  boom: '-world-'
-});
-
 testWithFixture('fixture2', {
   boom: '_boom_'
 });
