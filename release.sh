@@ -3,5 +3,5 @@ set -euo pipefail
 yarn install
 yarn build
 yarn test
-yarn package
+yarn pack
 npx jsii-release-npm .
