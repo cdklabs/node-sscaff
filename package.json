@@ -14,7 +14,7 @@
     "@types/node": "^13.7.6",
     "jest": "^25.1.0",
     "jsii-release": "^0.1.2",
-    "standard-version": "^7.1.0",
+    "standard-version": "^8.0.1",
     "typescript": "^3.8.2"
   },
   "jest": {
