@@ -2,15 +2,15 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { substitute } from './substitute';
 
-const hooksFile = `.hooks.sscaff.js`;
+const hooksFile = '.hooks.sscaff.js';
 
 /**
  * Copy all files from `templateDir` to `targetDir` and substitute all variables
  * in file names and their contents. Substitutions take the form `{{ key }}`.
- * 
- * @param sourceDir 
- * @param targetDir 
- * @param variables 
+ *
+ * @param sourceDir
+ * @param targetDir
+ * @param variables
  */
 export async function sscaff(sourceDir: string, targetDir: string, variables: { [key: string]: string } = { }) {
   sourceDir = path.resolve(sourceDir);
@@ -51,7 +51,7 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
 
       const targetPath = substitute(path.join(subdir, file), variables);
       const input = await fs.readFile(sourcePath, 'utf-8');
-      const output = substitute(input, variables);
+      const output = substitute(input.toString(), variables);
       await fs.mkdir(path.dirname(targetPath), { recursive: true });
       await fs.writeFile(targetPath, output);
     }
@@ -69,6 +69,7 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
 
   function loadHooks() {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       return require(path.join(sourceDir, hooksFile));
     } catch {
       return undefined;
