@@ -1,33 +1,33 @@
-import { sscaff } from '..';
 import { promises as fs } from 'fs';
 import * as path from 'path';
+import { sscaff } from '..';
 
 testWithFixture('fixture1', {
   sscaff: 'here',
-  here: 'sscaff'
+  here: 'sscaff',
 });
 
 testWithFixture('fixture2', {
-  boom: '_boom_'
+  boom: '_boom_',
 });
 
 testWithFixture('fixture3', {
-  name: 'oliver'
+  name: 'oliver',
 });
 
 testWithFixture('fixture4');
 
-async function testWithFixture(fixture: string, variables?: { [key: string]: string }) {
+function testWithFixture(fixture: string, variables?: { [key: string]: string }) {
   test(fixture, async () => {
     const input = path.join(__dirname, fixture);
     const expected = path.join(__dirname, `${fixture}.expected`);
-  
+
     const actual = await fs.mkdtemp('/tmp/sscaff-test');
     const outdir = path.join(actual, 'myproject');
     await sscaff(input, outdir, variables);
 
     try {
-      await expectDirsEqual(actual, expected, [ '.hooks.sscaff.js' ]);
+      await expectDirsEqual(actual, expected, ['.hooks.sscaff.js']);
     } catch (e) {
       console.log(`\nto update:\n  rsync --delete -av ${actual}/ ${expected}/`);
       throw e;
@@ -52,7 +52,7 @@ async function expectDirsEqual(left: string, right: string, exclude: string[] = 
       await expectDirsEqual(leftFile, rightFile);
       continue;
     }
-    
+
     const leftContents = await fs.readFile(leftFile, 'utf-8');
     const rightContents = await fs.readFile(rightFile, 'utf-8');
     expect(leftContents).toEqual(rightContents);
