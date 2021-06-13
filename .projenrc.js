@@ -13,4 +13,5 @@ const project = new TypeScriptProject({
   minNodeVersion: '10.17.0',
 });
 
+project.gitignore.include('lib/__tests__/**/.hooks.sscaff.js');
 project.synth();

@@ -47,3 +47,4 @@ yarn-error.log*
 !/package.json
 !/tsconfig.eslint.json
 !/tsconfig.json
+!lib/__tests__/**/.hooks.sscaff.js
