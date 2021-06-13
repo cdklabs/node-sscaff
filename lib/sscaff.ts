@@ -16,6 +16,7 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
   sourceDir = path.resolve(sourceDir);
   targetDir = path.resolve(targetDir);
 
+  console.log('Scaffing..');
   await fs.mkdir(targetDir, { recursive: true });
 
   const hooks = loadHooks();
