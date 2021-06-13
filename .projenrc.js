@@ -10,7 +10,7 @@ const project = new TypeScriptProject({
   defaultReleaseBranch: 'master',
   srcdir: 'lib',
   testdir: 'lib/__tests__',
-  minNodeVersion: '10.0.0',
+  minNodeVersion: '10.17.0',
 });
 
 project.synth();
