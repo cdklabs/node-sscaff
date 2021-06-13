@@ -11,6 +11,12 @@ const project = new TypeScriptProject({
   srcdir: 'lib',
   testdir: 'lib/__tests__',
   minNodeVersion: '10.17.0',
+  projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
+  autoApproveOptions: {
+    allowedUsernames: ['aws-cdk-automation'],
+    secret: 'GITHUB_TOKEN',
+  },
+  autoApproveUpgrades: true,
 });
 
 project.gitignore.include('lib/__tests__/**/.hooks.sscaff.js');

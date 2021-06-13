@@ -16,7 +16,6 @@
     "bump": "npx projen bump",
     "unbump": "npx projen unbump",
     "upgrade-dependencies": "npx projen upgrade-dependencies",
-    "upgrade-projen": "npx projen upgrade-projen",
     "default": "npx projen default",
     "watch": "npx projen watch",
     "package": "npx projen package",
@@ -42,7 +41,7 @@
     "jest-junit": "^12",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.22.13",
+    "projen": "^0.24.2",
     "standard-version": "^9",
     "typescript": "^3.9.9"
   },
