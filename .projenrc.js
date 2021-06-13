@@ -10,6 +10,8 @@ const project = new TypeScriptProject({
   defaultReleaseBranch: 'master',
   srcdir: 'lib',
   testdir: 'lib/__tests__',
+  minNodeVersion: '10.17.0',
 });
 
+project.gitignore.include('lib/__tests__/**/.hooks.sscaff.js');
 project.synth();

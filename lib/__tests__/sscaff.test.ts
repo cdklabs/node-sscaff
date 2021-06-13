@@ -2,22 +2,22 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { sscaff } from '..';
 
-testWithFixture('fixture1', {
+void testWithFixture('fixture1', {
   sscaff: 'here',
   here: 'sscaff',
 });
 
-testWithFixture('fixture2', {
+void testWithFixture('fixture2', {
   boom: '_boom_',
 });
 
-testWithFixture('fixture3', {
+void testWithFixture('fixture3', {
   name: 'oliver',
 });
 
-testWithFixture('fixture4');
+void testWithFixture('fixture4');
 
-function testWithFixture(fixture: string, variables?: { [key: string]: string }) {
+async function testWithFixture(fixture: string, variables?: { [key: string]: string }) {
   test(fixture, async () => {
     const input = path.join(__dirname, fixture);
     const expected = path.join(__dirname, `${fixture}.expected`);
