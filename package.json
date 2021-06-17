@@ -41,9 +41,9 @@
     "jest-junit": "^12",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.24.7",
+    "projen": "^0.24.8",
     "standard-version": "^9",
-    "typescript": "^3.9.9"
+    "typescript": "^3.9.10"
   },
   "bundledDependencies": [],
   "engines": {
