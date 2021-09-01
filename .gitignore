@@ -43,6 +43,8 @@ junit.xml
 !/lib/__tests__/
 !/tsconfig.json
 !/lib/
+/lib/**/*.js
+/lib/**/*.d.ts
 /dist/
 !/.projen/jest-snapshot-resolver.js
 !/.eslintrc.json
