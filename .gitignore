@@ -41,13 +41,13 @@ junit.xml
 !/.github/pull_request_template.md
 !/lib/__tests__/
 !/tsconfig.json
+!/tsconfig.dev.json
 !/lib/
 /lib/**/*.js
 /lib/**/*.d.ts
 /dist/
 !/.projen/jest-snapshot-resolver.js
 !/.eslintrc.json
-!/tsconfig.eslint.json
 !lib/__tests__/**/.hooks.sscaff.js
 !/.github/workflows/release.yml
 !/.github/workflows/upgrade-master.yml
