@@ -44,7 +44,7 @@
     "jest-junit": "^12",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^11",
-    "projen": "^0.33.3",
+    "projen": "^0.33.4",
     "standard-version": "^9",
     "typescript": "^3.9.10"
   },
