@@ -11,6 +11,7 @@ const project = new typescript.TypeScriptProject({
   srcdir: 'lib',
   testdir: 'lib/__tests__',
   minNodeVersion: '12.13.0',
+  workflowNodeVersion: '12.22.0',
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation'],
