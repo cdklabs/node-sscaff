@@ -1,6 +1,6 @@
-const { TypeScriptProject } = require('projen');
+const { typescript } = require('projen');
 
-const project = new TypeScriptProject({
+const project = new typescript.TypeScriptProject({
   name: 'sscaff',
   description: 'Stupid scaffoling: create a copy of a directory with variable substitution',
   authorName: 'Elad Ben-Israel',
@@ -11,6 +11,7 @@ const project = new TypeScriptProject({
   srcdir: 'lib',
   testdir: 'lib/__tests__',
   minNodeVersion: '12.13.0',
+  workflowNodeVersion: '12.22.0',
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation'],
