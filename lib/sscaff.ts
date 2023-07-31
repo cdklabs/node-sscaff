@@ -36,6 +36,15 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
 
   async function processDirectory(subdir: string) {
     const subPath = path.join(sourceDir, subdir);
+
+    // Empty directory
+    if ((await fs.stat(subPath)).isDirectory() && (await fs.readdir(subPath)).length == 0) {
+      const targetPath = substitute(subdir, variables);
+      await fs.mkdir(targetPath, { recursive: true });
+
+      return;
+    }
+
     for (const file of await fs.readdir(subPath)) {
 
       if (file === hooksFile) {

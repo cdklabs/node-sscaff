@@ -17,6 +17,10 @@ void testWithFixture('fixture3', {
 
 void testWithFixture('fixture4');
 
+void testWithFixture('fixture5', {
+  name: 'foo',
+});
+
 async function testWithFixture(fixture: string, variables?: { [key: string]: string }) {
   test(fixture, async () => {
     const input = path.join(__dirname, fixture);
