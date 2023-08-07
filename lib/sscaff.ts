@@ -46,6 +46,11 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
       const targetPath = substitute(subdir, variables);
       await fs.mkdir(targetPath, { recursive: true });
 
+      // Empty git keep files
+      if (variables.ignoreGitkeep === 'false') {
+        await fs.writeFile(path.join(targetPath, GIT_KEEP_FILE), '');
+      }
+
       return;
     }
 

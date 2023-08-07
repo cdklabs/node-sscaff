@@ -101,7 +101,7 @@ my-first-template/
   a-empty-directory/
 ```
 
-If you are using version control, then you would need to add a `.gitkeep` file to the empty directory, since git does not track empty folders. For example,
+If you are using version control, then you would need to add a `.gitkeep` file to the empty directory, since git does not track empty folders. For example:
 
 ```
 my-first-template/
@@ -109,7 +109,18 @@ my-first-template/
     .gitkeep
 ```
 
-NOTE: The `.gitkeep` file will be ignored when template is copied over to the target directory.
+__Note:__
+
+The `.gitkeep` file will be ignored when template is copied over to the target directory. If you would want it to be copied as well, then you can use `ignoreGitkeep: 'false'` as an option. For example:
+
+```ts
+import { sscaff } from 'sscaff';
+
+await sscaff('my-first-template', 'outdir', {
+  name: 'oliver',
+  ignore_gitkeep: 'false',
+});
+```
 
 ## Contributions
 
