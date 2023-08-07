@@ -92,6 +92,18 @@ outdir
     hello hello
 ```
 
+## Empty directories
+
+You can create an empty directory or have empty sub-directories in your directory template. For example:
+
+```
+my-first-template/
+  a-empty-directory/
+    .gitkeep
+```
+For this, you would need to add a `.gitkeep` file to the empty directory. This would help you with version control and would also be ignored when template is being copied over to the target directory.
+
+
 ## Contributions
 
 All contributions are welcome, just raise an issue or submit a PR. Add a test, update readme. Do the right thing.

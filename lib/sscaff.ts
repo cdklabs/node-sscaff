@@ -3,6 +3,7 @@ import * as path from 'path';
 import { substitute } from './substitute';
 
 const hooksFile = '.hooks.sscaff.js';
+const GIT_KEEP_FILE = '.gitkeep';
 
 /**
  * Copy all files from `templateDir` to `targetDir` and substitute all variables
@@ -37,8 +38,10 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
   async function processDirectory(subdir: string) {
     const subPath = path.join(sourceDir, subdir);
 
+    const contents = await fs.readdir(subPath);
+
     // Empty directory
-    if ((await fs.stat(subPath)).isDirectory() && (await fs.readdir(subPath)).length == 0) {
+    if ((await fs.stat(subPath)).isDirectory() && contents.length == 1 && contents[0] === GIT_KEEP_FILE) {
       const targetPath = substitute(subdir, variables);
       await fs.mkdir(targetPath, { recursive: true });
 
