@@ -41,7 +41,8 @@ export async function sscaff(sourceDir: string, targetDir: string, variables: { 
     const contents = await fs.readdir(subPath);
 
     // Empty directory
-    if ((await fs.stat(subPath)).isDirectory() && contents.length == 1 && contents[0] === GIT_KEEP_FILE) {
+    if ((await fs.stat(subPath)).isDirectory() &&
+    (contents.length == 0 || (contents.length == 1 && contents[0] === GIT_KEEP_FILE))) {
       const targetPath = substitute(subdir, variables);
       await fs.mkdir(targetPath, { recursive: true });
 

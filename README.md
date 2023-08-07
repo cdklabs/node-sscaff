@@ -99,10 +99,17 @@ You can create an empty directory or have empty sub-directories in your director
 ```
 my-first-template/
   a-empty-directory/
+```
+
+If you are using version control, then you would need to add a `.gitkeep` file to the empty directory, since git does not track empty folders. For example,
+
+```
+my-first-template/
+  a-empty-directory/
     .gitkeep
 ```
-For this, you would need to add a `.gitkeep` file to the empty directory. This would help you with version control and would also be ignored when template is being copied over to the target directory.
 
+NOTE: The `.gitkeep` file will be ignored when template is copied over to the target directory.
 
 ## Contributions
 
