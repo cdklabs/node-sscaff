@@ -51,7 +51,6 @@ async function expectDirsEqual(left: string, right: string, exclude: string[] = 
 
     const leftIsDirectory = (await fs.stat(leftFile)).isDirectory();
     const rightIsDirectory = (await fs.stat(rightFile)).isDirectory();
-
     expect(leftIsDirectory).toEqual(rightIsDirectory);
 
     if (leftIsDirectory) {

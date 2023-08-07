@@ -118,7 +118,7 @@ import { sscaff } from 'sscaff';
 
 await sscaff('my-first-template', 'outdir', {
   name: 'oliver',
-  ignore_gitkeep: 'false',
+  ignoreGitkeep: 'false',
 });
 ```
 
