@@ -92,36 +92,6 @@ outdir
     hello hello
 ```
 
-## Empty directories
-
-You can create an empty directory or have empty sub-directories in your directory template. For example:
-
-```
-my-first-template/
-  a-empty-directory/
-```
-
-If you are using version control, then you would need to add a `.gitkeep` file to the empty directory, since git does not track empty folders. For example:
-
-```
-my-first-template/
-  a-empty-directory/
-    .gitkeep
-```
-
-__Note:__
-
-The `.gitkeep` file will be ignored when template is copied over to the target directory. If you would want it to be copied as well, then you can use `ignoreGitkeep: 'false'` as an option. For example:
-
-```ts
-import { sscaff } from 'sscaff';
-
-await sscaff('my-first-template', 'outdir', {
-  name: 'oliver',
-  ignoreGitkeep: 'false',
-});
-```
-
 ## Contributions
 
 All contributions are welcome, just raise an issue or submit a PR. Add a test, update readme. Do the right thing.
