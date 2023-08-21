@@ -17,13 +17,19 @@ void testWithFixture('fixture3', {
 
 void testWithFixture('fixture4');
 
-async function testWithFixture(fixture: string, variables?: { [key: string]: string }) {
+void testWithFixture('fixture5', { name: 'foo' }, 'empty-dir');
+
+async function testWithFixture(fixture: string, variables?: { [key: string]: string }, emptyDirName?: string) {
   test(fixture, async () => {
     const input = path.join(__dirname, fixture);
     const expected = path.join(__dirname, `${fixture}.expected`);
 
+    const [imputEmptyDirPath, expectedEmptyDirPath] = emptyDirName ?
+      await createEmptyDirsForTesting(input, expected, emptyDirName): [undefined, undefined];
+
     const actual = await fs.mkdtemp('/tmp/sscaff-test');
     const outdir = path.join(actual, 'myproject');
+
     await sscaff(input, outdir, variables);
 
     try {
@@ -31,8 +37,28 @@ async function testWithFixture(fixture: string, variables?: { [key: string]: str
     } catch (e) {
       console.log(`\nto update:\n  rsync --delete -av ${actual}/ ${expected}/`);
       throw e;
+    } finally {
+      // Cleaning up empty dirs created for test, if any
+      if (imputEmptyDirPath && expectedEmptyDirPath) {
+        await fs.rmdir(imputEmptyDirPath, { recursive: true });
+        await fs.rmdir(expectedEmptyDirPath, { recursive: true });
+      }
     }
   });
+}
+
+async function createEmptyDirsForTesting(input: string, expected: string, emptyDirName: string) {
+  // For testing an empty directory. We create this during the test to
+  // avoid using .gitkeep files to retain the folder structure in git
+  let imputEmptyDirPath;
+  let expectedEmptyDirPath;
+
+  if (emptyDirName) {
+    imputEmptyDirPath = await fs.mkdir(path.join(input, emptyDirName), { recursive: true });
+    expectedEmptyDirPath = await fs.mkdir(path.join(expected, 'myproject', emptyDirName), { recursive: true });
+  }
+
+  return [imputEmptyDirPath, expectedEmptyDirPath];
 }
 
 async function expectDirsEqual(left: string, right: string, exclude: string[] = []) {
