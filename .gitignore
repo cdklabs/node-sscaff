@@ -40,7 +40,6 @@ junit.xml
 /dist/version.txt
 !/.github/workflows/release.yml
 !/.mergify.yml
-!/.github/workflows/upgrade-main.yml
 !/.github/pull_request_template.md
 !/lib/__tests__/
 !/tsconfig.json
@@ -53,4 +52,6 @@ junit.xml
 !/.projen/jest-snapshot-resolver.js
 !/.eslintrc.json
 !/.github/workflows/upgrade-cdklabs-projen-project-types-main.yml
+!/.github/workflows/upgrade-main.yml
+!/.github/workflows/upgrade-dev-deps-main.yml
 !lib/__tests__/**/.hooks.sscaff.js
