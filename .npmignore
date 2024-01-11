@@ -20,3 +20,5 @@ dist
 tsconfig.tsbuildinfo
 /lib/__tests__/
 /.eslintrc.json
+/.gitattributes
+/.projenrc.ts
