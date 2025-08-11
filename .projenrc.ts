@@ -20,6 +20,7 @@ const project = new CdklabsTypeScriptProject({
     secret: 'GITHUB_TOKEN',
   },
   autoApproveUpgrades: true,
+  enablePRAutoMerge: true,
 });
 
 project.gitignore.include('lib/__tests__/**/.hooks.sscaff.js');
