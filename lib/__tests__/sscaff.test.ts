@@ -25,7 +25,7 @@ async function testWithFixture(fixture: string, variables?: { [key: string]: str
     const expected = path.join(__dirname, `${fixture}.expected`);
 
     const [imputEmptyDirPath, expectedEmptyDirPath] = emptyDirName ?
-      await createEmptyDirsForTesting(input, expected, emptyDirName): [undefined, undefined];
+      await createEmptyDirsForTesting(input, expected, emptyDirName) : [undefined, undefined];
 
     const actual = await fs.mkdtemp('/tmp/sscaff-test');
     const outdir = path.join(actual, 'myproject');
@@ -40,8 +40,8 @@ async function testWithFixture(fixture: string, variables?: { [key: string]: str
     } finally {
       // Cleaning up empty dirs created for test, if any
       if (imputEmptyDirPath && expectedEmptyDirPath) {
-        await fs.rmdir(imputEmptyDirPath, { recursive: true });
-        await fs.rmdir(expectedEmptyDirPath, { recursive: true });
+        await fs.rm(imputEmptyDirPath, { recursive: true });
+        await fs.rm(expectedEmptyDirPath, { recursive: true });
       }
     }
   });
